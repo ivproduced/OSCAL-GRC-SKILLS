@@ -14,7 +14,7 @@ This project follows our [Code of Conduct](CODE_OF_CONDUCT.md). By participating
 
 ### Reporting Issues
 
-Found a bug or have a suggestion? [Open an issue](https://github.com/ivproduced/OSCAL-GRC-SKILLS/issues) with:
+Found a bug or have a suggestion? [Open an issue](https://github.com/euCann/OSCAL-GRC-SKILLS/issues) with:
 
 - Clear, descriptive title
 - Steps to reproduce (for bugs)
@@ -47,7 +47,7 @@ Skills are markdown files — improvements are always welcome:
 
 1. **Fork and clone the repository**
    ```bash
-   git clone https://github.com/ivproduced/OSCAL-GRC-SKILLS.git
+   git clone https://github.com/euCann/OSCAL-GRC-SKILLS.git
    cd oscal-skills
    ```
 
@@ -180,8 +180,8 @@ When adding skills, consider which category fits:
 
 ## Getting Help
 
-- **Questions?** Open a [discussion](https://github.com/ivproduced/OSCAL-GRC-SKILLS/discussions)
-- **Found a bug?** Open an [issue](https://github.com/ivproduced/OSCAL-GRC-SKILLS/issues)
+- **Questions?** Open a [discussion](https://github.com/euCann/OSCAL-GRC-SKILLS/discussions)
+- **Found a bug?** Open an [issue](https://github.com/euCann/OSCAL-GRC-SKILLS/issues)
 - **Want to chat?** Join the OSCAL community
 
 ---

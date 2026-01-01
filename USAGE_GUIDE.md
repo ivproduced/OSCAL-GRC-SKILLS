@@ -35,7 +35,7 @@ Copy the skill content into your system prompt or conversation.
 
 **Option C: Use Claude Code plugin marketplace**
 ```
-/plugin marketplace add ivproduced/OSCAL-GRC-SKILLS
+/plugin marketplace add euCann/OSCAL-GRC-SKILLS
 ```
 
 ### 3. Provide Your OSCAL Document
