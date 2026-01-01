@@ -82,13 +82,13 @@ Upload any skill folder to Claude or reference the `SKILL.md` file directly. Cla
 Add this repository as a plugin:
 
 ```bash
-/plugin marketplace add eucann-dev/oscal-skills
+/plugin marketplace add ivproduced/OSCAL-GRC-SKILLS
 ```
 
 Or install skills directly:
 
 ```bash
-/plugin install oscal-grc-skills@eucann-dev/oscal-skills
+/plugin install oscal-grc-skills@ivproduced/OSCAL-GRC-SKILLS
 ```
 
 Then ask Claude to use the skills:

@@ -4,7 +4,7 @@
 
 **Claude.ai:** Upload the `SKILL.md` file from any skill folder
 
-**Claude Code:** `/plugin marketplace add eucann-dev/oscal-skills`
+**Claude Code:** `/plugin marketplace add ivproduced/OSCAL-GRC-SKILLS`
 
 **API:** Include skill content in your system prompt
 
