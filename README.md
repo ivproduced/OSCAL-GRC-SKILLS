@@ -251,6 +251,16 @@ oscal-skills/
 
 ## 🙏 Acknowledgments
 
+### Standards & Authoritative Sources
+
+| Organization | Contribution |
+|--------------|--------------|
+| [NIST](https://www.nist.gov/) | OSCAL specification, SP 800-53, Cybersecurity Framework |
+| [FedRAMP](https://www.fedramp.gov/) | FedRAMP baselines, SSP templates, authorization requirements |
+| [GSA](https://github.com/GSA/fedramp-automation) | FedRAMP automation tools, OSCAL baselines, validation rules |
+
+### Community Projects
+
 This project was inspired by incredible work from the OSCAL community:
 
 | Project | Inspiration |
