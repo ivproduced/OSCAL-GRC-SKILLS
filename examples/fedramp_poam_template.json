@@ -1,0 +1,827 @@
+{
+  "plan-of-action-and-milestones": {
+    "uuid": "poam-12345678-1234-1234-1234-123456789012",
+    "metadata": {
+      "title": "Plan of Action and Milestones (POA&M) for FedRAMP Cloud Service",
+      "published": "2024-12-28T12:00:00.000Z",
+      "last-modified": "2024-12-28T12:00:00.000Z",
+      "version": "1.0.0",
+      "oscal-version": "1.1.2",
+      "props": [
+        {
+          "name": "keywords",
+          "value": "POA&M, remediation, security findings, FedRAMP"
+        },
+        {
+          "name": "fedramp-impact-level",
+          "ns": "https://fedramp.gov/ns/oscal",
+          "value": "moderate"
+        },
+        {
+          "name": "system-id",
+          "ns": "https://fedramp.gov/ns/oscal", 
+          "value": "FR123456789"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.fedramp.gov/assets/resources/templates/FedRAMP-POAM-Template.xlsx",
+          "rel": "reference",
+          "text": "FedRAMP POA&M Template"
+        }
+      ],
+      "roles": [
+        {
+          "id": "isso",
+          "title": "Information System Security Officer",
+          "description": "Primary contact for system security matters and POA&M management"
+        },
+        {
+          "id": "system-owner",
+          "title": "Information System Owner",
+          "description": "Business owner responsible for the information system"
+        },
+        {
+          "id": "control-assessor",
+          "title": "Control Assessor", 
+          "description": "Third-party assessor responsible for security control validation"
+        }
+      ],
+      "parties": [
+        {
+          "uuid": "party-csp-12345678-1234-1234-1234-123456789012",
+          "type": "organization",
+          "name": "Cloud Service Provider, Inc.",
+          "props": [
+            {
+              "name": "mail-stop",
+              "value": "A-1"
+            }
+          ],
+          "addresses": [
+            {
+              "type": "work",
+              "addr-lines": [
+                "123 Cloud Avenue",
+                "Suite 100"
+              ],
+              "city": "Washington",
+              "state": "DC",
+              "postal-code": "20001",
+              "country": "US"
+            }
+          ],
+          "email-addresses": [
+            "security@cloudprovider.com"
+          ],
+          "telephone-numbers": [
+            {
+              "number": "+1 (555) 123-4567"
+            }
+          ]
+        }
+      ],
+      "responsible-parties": [
+        {
+          "role-id": "isso",
+          "party-uuids": [
+            "party-csp-12345678-1234-1234-1234-123456789012"
+          ]
+        },
+        {
+          "role-id": "system-owner",
+          "party-uuids": [
+            "party-csp-12345678-1234-1234-1234-123456789012"
+          ]
+        }
+      ]
+    },
+    "system-id": {
+      "identifier-type": "https://fedramp.gov",
+      "id": "FR123456789"
+    },
+    "local-definitions": {
+      "objectives-and-methods": [
+        {
+          "uuid": "obj-vuln-mgmt-12345678-1234-1234-1234-123456789012",
+          "description": "Establish comprehensive vulnerability management processes including regular scanning, assessment, and remediation tracking.",
+          "props": [
+            {
+              "name": "label",
+              "value": "Objective 1"
+            }
+          ],
+          "methods": [
+            "EXAMINE",
+            "INTERVIEW", 
+            "TEST"
+          ]
+        },
+        {
+          "uuid": "obj-incident-resp-12345678-1234-1234-1234-123456789012",
+          "description": "Implement incident response capabilities that meet FedRAMP continuous monitoring requirements.",
+          "props": [
+            {
+              "name": "label", 
+              "value": "Objective 2"
+            }
+          ],
+          "methods": [
+            "EXAMINE",
+            "TEST"
+          ]
+        }
+      ]
+    },
+    "observations": [
+      {
+        "uuid": "obs-vuln-scan-12345678-1234-1234-1234-123456789012",
+        "title": "Vulnerability Scanning Process Gap",
+        "description": "The current vulnerability scanning process does not meet the FedRAMP requirement for authenticated scanning of all system components every 30 days.",
+        "props": [
+          {
+            "name": "finding-id",
+            "value": "V-001"
+          },
+          {
+            "name": "risk-rating",
+            "value": "moderate"
+          },
+          {
+            "name": "finding-type",
+            "value": "weakness"
+          }
+        ],
+        "methods": [
+          "EXAMINE"
+        ],
+        "types": [
+          "finding"
+        ],
+        "origins": [
+          {
+            "actors": [
+              {
+                "type": "party",
+                "actor-uuid": "party-csp-12345678-1234-1234-1234-123456789012"
+              }
+            ]
+          }
+        ],
+        "subjects": [
+          {
+            "uuid-ref": "comp-vuln-scanner-12345678-1234-1234-1234-123456789012",
+            "type": "component"
+          }
+        ],
+        "relevant-evidence": [
+          {
+            "href": "#evidence-vuln-policy",
+            "description": "Current vulnerability management policy"
+          },
+          {
+            "href": "#evidence-scan-reports",
+            "description": "Sample vulnerability scan reports from past 90 days"
+          }
+        ]
+      },
+      {
+        "uuid": "obs-access-review-12345678-1234-1234-1234-123456789012",
+        "title": "Access Review Documentation Incomplete",
+        "description": "Quarterly access reviews are being performed but documentation does not consistently include all required elements per AC-2(3).",
+        "props": [
+          {
+            "name": "finding-id", 
+            "value": "AC-002"
+          },
+          {
+            "name": "risk-rating",
+            "value": "low"
+          },
+          {
+            "name": "finding-type",
+            "value": "weakness"
+          }
+        ],
+        "methods": [
+          "EXAMINE",
+          "INTERVIEW"
+        ],
+        "types": [
+          "finding"
+        ],
+        "origins": [
+          {
+            "actors": [
+              {
+                "type": "party",
+                "actor-uuid": "party-csp-12345678-1234-1234-1234-123456789012"
+              }
+            ]
+          }
+        ],
+        "subjects": [
+          {
+            "uuid-ref": "ctrl-ac-2",
+            "type": "control-objective"
+          }
+        ],
+        "relevant-evidence": [
+          {
+            "href": "#evidence-access-reviews",
+            "description": "Q3 2024 access review documentation"
+          }
+        ]
+      },
+      {
+        "uuid": "obs-encryption-config-12345678-1234-1234-1234-123456789012",
+        "title": "Database Encryption Configuration Issue",
+        "description": "Production database instances are using encryption in transit but one development environment was found without encryption at rest configured.",
+        "props": [
+          {
+            "name": "finding-id",
+            "value": "SC-008"
+          },
+          {
+            "name": "risk-rating", 
+            "value": "high"
+          },
+          {
+            "name": "finding-type",
+            "value": "weakness"
+          }
+        ],
+        "methods": [
+          "TEST"
+        ],
+        "types": [
+          "finding"
+        ],
+        "origins": [
+          {
+            "actors": [
+              {
+                "type": "party",
+                "actor-uuid": "party-csp-12345678-1234-1234-1234-123456789012"
+              }
+            ]
+          }
+        ],
+        "subjects": [
+          {
+            "uuid-ref": "comp-database-dev-12345678-1234-1234-1234-123456789012",
+            "type": "component"
+          }
+        ],
+        "relevant-evidence": [
+          {
+            "href": "#evidence-db-configs",
+            "description": "Database configuration screenshots"
+          }
+        ]
+      }
+    ],
+    "risks": [
+      {
+        "uuid": "risk-vuln-mgmt-12345678-1234-1234-1234-123456789012",
+        "title": "Inadequate Vulnerability Management Risk",
+        "description": "The gap in comprehensive vulnerability scanning may result in undetected security vulnerabilities that could be exploited by threat actors to gain unauthorized access to system components.",
+        "statement": "If vulnerability scanning is not performed according to FedRAMP requirements, the organization may fail to identify critical security weaknesses in a timely manner, potentially leading to successful cyber attacks and compliance violations.",
+        "props": [
+          {
+            "name": "impact-level",
+            "value": "moderate"
+          },
+          {
+            "name": "likelihood",
+            "value": "moderate"  
+          },
+          {
+            "name": "risk-rating",
+            "value": "moderate"
+          }
+        ],
+        "status": "open",
+        "origins": [
+          {
+            "actors": [
+              {
+                "type": "party",
+                "actor-uuid": "party-csp-12345678-1234-1234-1234-123456789012"
+              }
+            ]
+          }
+        ],
+        "characterizations": [
+          {
+            "origin": {
+              "actors": [
+                {
+                  "type": "party",
+                  "actor-uuid": "party-csp-12345678-1234-1234-1234-123456789012"
+                }
+              ]
+            },
+            "facets": [
+              {
+                "name": "impact-level",
+                "system": "https://fedramp.gov/ns/oscal",
+                "value": "moderate"
+              },
+              {
+                "name": "likelihood",
+                "system": "https://fedramp.gov/ns/oscal", 
+                "value": "moderate"
+              }
+            ]
+          }
+        ],
+        "mitigating-factors": [
+          {
+            "uuid": "mitigation-1-12345678-1234-1234-1234-123456789012",
+            "implementation-uuid": "impl-ids-12345678-1234-1234-1234-123456789012",
+            "description": "Intrusion detection systems provide some compensating coverage by monitoring for suspicious network activity."
+          }
+        ],
+        "deadline": "2025-03-31T23:59:59.000Z",
+        "response": [
+          {
+            "uuid": "response-vuln-12345678-1234-1234-1234-123456789012",
+            "lifecycle": "planned",
+            "title": "Enhanced Vulnerability Management Implementation",
+            "description": "Implement comprehensive vulnerability scanning solution that meets all FedRAMP requirements including authenticated scanning, 30-day frequency, and automated reporting.",
+            "props": [
+              {
+                "name": "response-type",
+                "value": "mitigate"
+              }
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "party",
+                    "actor-uuid": "party-csp-12345678-1234-1234-1234-123456789012"
+                  }
+                ]
+              }
+            ],
+            "required-assets": [
+              {
+                "uuid": "asset-vuln-scanner-12345678-1234-1234-1234-123456789012",
+                "subjects": [
+                  {
+                    "uuid-ref": "comp-vuln-scanner-12345678-1234-1234-1234-123456789012",
+                    "type": "component"
+                  }
+                ],
+                "title": "Enterprise Vulnerability Scanner License",
+                "description": "Commercial vulnerability scanning solution with authenticated scanning capabilities"
+              }
+            ],
+            "tasks": [
+              {
+                "uuid": "task-vuln-1-12345678-1234-1234-1234-123456789012",
+                "type": "milestone",
+                "title": "Procurement of Vulnerability Scanner",
+                "description": "Complete procurement process for enterprise vulnerability scanning solution",
+                "props": [
+                  {
+                    "name": "milestone-type",
+                    "value": "procurement"
+                  }
+                ],
+                "timing": {
+                  "within-date-range": {
+                    "start": "2024-12-28T00:00:00.000Z",
+                    "end": "2025-01-31T23:59:59.000Z"
+                  }
+                },
+                "responsible-roles": [
+                  {
+                    "role-id": "isso"
+                  }
+                ]
+              },
+              {
+                "uuid": "task-vuln-2-12345678-1234-1234-1234-123456789012",
+                "type": "milestone",
+                "title": "Scanner Deployment and Configuration",
+                "description": "Deploy and configure vulnerability scanner across all system components with authenticated scanning enabled",
+                "props": [
+                  {
+                    "name": "milestone-type",
+                    "value": "implementation"
+                  }
+                ],
+                "timing": {
+                  "within-date-range": {
+                    "start": "2025-02-01T00:00:00.000Z", 
+                    "end": "2025-02-28T23:59:59.000Z"
+                  }
+                },
+                "responsible-roles": [
+                  {
+                    "role-id": "isso"
+                  }
+                ],
+                "depends-on": [
+                  "task-vuln-1-12345678-1234-1234-1234-123456789012"
+                ]
+              },
+              {
+                "uuid": "task-vuln-3-12345678-1234-1234-1234-123456789012",
+                "type": "milestone",
+                "title": "Process Documentation and Training",
+                "description": "Update vulnerability management procedures and train staff on new scanning processes",
+                "props": [
+                  {
+                    "name": "milestone-type",
+                    "value": "documentation"
+                  }
+                ],
+                "timing": {
+                  "within-date-range": {
+                    "start": "2025-03-01T00:00:00.000Z",
+                    "end": "2025-03-31T23:59:59.000Z"
+                  }
+                },
+                "responsible-roles": [
+                  {
+                    "role-id": "isso"
+                  }
+                ],
+                "depends-on": [
+                  "task-vuln-2-12345678-1234-1234-1234-123456789012"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "uuid": "risk-access-review-12345678-1234-1234-1234-123456789012",
+        "title": "Access Review Documentation Risk",
+        "description": "Incomplete access review documentation may not provide sufficient evidence of proper access control oversight during FedRAMP assessments.",
+        "statement": "Inadequate documentation of access reviews could result in findings during FedRAMP assessment and may indicate gaps in access control governance.",
+        "props": [
+          {
+            "name": "impact-level",
+            "value": "low"
+          },
+          {
+            "name": "likelihood", 
+            "value": "low"
+          },
+          {
+            "name": "risk-rating",
+            "value": "low"
+          }
+        ],
+        "status": "open",
+        "origins": [
+          {
+            "actors": [
+              {
+                "type": "party",
+                "actor-uuid": "party-csp-12345678-1234-1234-1234-123456789012"
+              }
+            ]
+          }
+        ],
+        "deadline": "2025-01-31T23:59:59.000Z",
+        "response": [
+          {
+            "uuid": "response-access-12345678-1234-1234-1234-123456789012",
+            "lifecycle": "planned",
+            "title": "Access Review Documentation Enhancement",
+            "description": "Standardize access review documentation templates and processes to ensure all required elements are consistently captured.",
+            "props": [
+              {
+                "name": "response-type",
+                "value": "mitigate"
+              }
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "party",
+                    "actor-uuid": "party-csp-12345678-1234-1234-1234-123456789012"
+                  }
+                ]
+              }
+            ],
+            "tasks": [
+              {
+                "uuid": "task-access-1-12345678-1234-1234-1234-123456789012",
+                "type": "milestone",
+                "title": "Review Template Standardization",
+                "description": "Update access review templates to include all FedRAMP required documentation elements",
+                "timing": {
+                  "within-date-range": {
+                    "start": "2024-12-28T00:00:00.000Z",
+                    "end": "2025-01-15T23:59:59.000Z"
+                  }
+                },
+                "responsible-roles": [
+                  {
+                    "role-id": "isso"
+                  }
+                ]
+              },
+              {
+                "uuid": "task-access-2-12345678-1234-1234-1234-123456789012",
+                "type": "milestone", 
+                "title": "Process Training and Implementation",
+                "description": "Train team members on updated access review process and implement for Q1 2025 reviews",
+                "timing": {
+                  "within-date-range": {
+                    "start": "2025-01-16T00:00:00.000Z",
+                    "end": "2025-01-31T23:59:59.000Z"
+                  }
+                },
+                "responsible-roles": [
+                  {
+                    "role-id": "isso"
+                  }
+                ],
+                "depends-on": [
+                  "task-access-1-12345678-1234-1234-1234-123456789012"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "uuid": "risk-encryption-12345678-1234-1234-1234-123456789012",
+        "title": "Data Encryption Configuration Risk",
+        "description": "Unencrypted development environment database may expose sensitive data and creates compliance gap with SC-8 requirements.",
+        "statement": "The development environment database lacks encryption at rest, which could allow unauthorized access to potentially sensitive development data and creates a FedRAMP compliance gap.",
+        "props": [
+          {
+            "name": "impact-level",
+            "value": "high"
+          },
+          {
+            "name": "likelihood",
+            "value": "low"
+          },
+          {
+            "name": "risk-rating",
+            "value": "moderate"
+          }
+        ],
+        "status": "open",
+        "origins": [
+          {
+            "actors": [
+              {
+                "type": "party",
+                "actor-uuid": "party-csp-12345678-1234-1234-1234-123456789012"
+              }
+            ]
+          }
+        ],
+        "deadline": "2025-01-15T23:59:59.000Z",
+        "response": [
+          {
+            "uuid": "response-encryption-12345678-1234-1234-1234-123456789012",
+            "lifecycle": "planned",
+            "title": "Development Environment Encryption Implementation", 
+            "description": "Enable encryption at rest for all development environment database instances to ensure consistent security posture across all environments.",
+            "props": [
+              {
+                "name": "response-type",
+                "value": "mitigate"
+              }
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "party",
+                    "actor-uuid": "party-csp-12345678-1234-1234-1234-123456789012"
+                  }
+                ]
+              }
+            ],
+            "tasks": [
+              {
+                "uuid": "task-encryption-1-12345678-1234-1234-1234-123456789012",
+                "type": "milestone",
+                "title": "Enable Database Encryption",
+                "description": "Configure encryption at rest for development database instances",
+                "timing": {
+                  "within-date-range": {
+                    "start": "2024-12-28T00:00:00.000Z",
+                    "end": "2025-01-10T23:59:59.000Z"
+                  }
+                },
+                "responsible-roles": [
+                  {
+                    "role-id": "isso"
+                  }
+                ]
+              },
+              {
+                "uuid": "task-encryption-2-12345678-1234-1234-1234-123456789012",
+                "type": "milestone",
+                "title": "Validation and Testing",
+                "description": "Validate encryption implementation and test application functionality",
+                "timing": {
+                  "within-date-range": {
+                    "start": "2025-01-11T00:00:00.000Z",
+                    "end": "2025-01-15T23:59:59.000Z"
+                  }
+                },
+                "responsible-roles": [
+                  {
+                    "role-id": "isso"
+                  }
+                ],
+                "depends-on": [
+                  "task-encryption-1-12345678-1234-1234-1234-123456789012"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "poam-items": [
+      {
+        "uuid": "poam-item-001-12345678-1234-1234-1234-123456789012",
+        "title": "Vulnerability Management Process Enhancement",
+        "description": "Implement comprehensive vulnerability scanning and management process that meets FedRAMP requirements for authenticated scanning every 30 days across all system components.",
+        "props": [
+          {
+            "name": "poam-id",
+            "value": "POA&M-001"
+          },
+          {
+            "name": "poam-type",
+            "value": "operational"
+          }
+        ],
+        "related-observations": [
+          {
+            "observation-uuid": "obs-vuln-scan-12345678-1234-1234-1234-123456789012"
+          }
+        ],
+        "associated-risks": [
+          {
+            "risk-uuid": "risk-vuln-mgmt-12345678-1234-1234-1234-123456789012"
+          }
+        ],
+        "remediation-tracking": {
+          "tracking-entries": [
+            {
+              "uuid": "tracking-001-12345678-1234-1234-1234-123456789012",
+              "date-time-stamp": "2024-12-28T12:00:00.000Z",
+              "title": "POA&M Item Created",
+              "description": "Initial POA&M item created based on vulnerability management assessment findings",
+              "props": [
+                {
+                  "name": "tracking-type",
+                  "value": "creation"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "uuid": "poam-item-002-12345678-1234-1234-1234-123456789012",
+        "title": "Access Review Documentation Standardization",
+        "description": "Enhance access review documentation to ensure all FedRAMP required elements are consistently captured in quarterly reviews.",
+        "props": [
+          {
+            "name": "poam-id",
+            "value": "POA&M-002"
+          },
+          {
+            "name": "poam-type",
+            "value": "documentation"
+          }
+        ],
+        "related-observations": [
+          {
+            "observation-uuid": "obs-access-review-12345678-1234-1234-1234-123456789012"
+          }
+        ],
+        "associated-risks": [
+          {
+            "risk-uuid": "risk-access-review-12345678-1234-1234-1234-123456789012"
+          }
+        ],
+        "remediation-tracking": {
+          "tracking-entries": [
+            {
+              "uuid": "tracking-002-12345678-1234-1234-1234-123456789012",
+              "date-time-stamp": "2024-12-28T12:00:00.000Z",
+              "title": "POA&M Item Created",
+              "description": "Created POA&M item to address access review documentation gaps identified during assessment",
+              "props": [
+                {
+                  "name": "tracking-type",
+                  "value": "creation"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "uuid": "poam-item-003-12345678-1234-1234-1234-123456789012",
+        "title": "Development Environment Encryption Implementation",
+        "description": "Enable encryption at rest for development environment database instances to maintain consistent security posture across all environments.",
+        "props": [
+          {
+            "name": "poam-id",
+            "value": "POA&M-003"
+          },
+          {
+            "name": "poam-type",
+            "value": "technical"
+          }
+        ],
+        "related-observations": [
+          {
+            "observation-uuid": "obs-encryption-config-12345678-1234-1234-1234-123456789012"
+          }
+        ],
+        "associated-risks": [
+          {
+            "risk-uuid": "risk-encryption-12345678-1234-1234-1234-123456789012"
+          }
+        ],
+        "remediation-tracking": {
+          "tracking-entries": [
+            {
+              "uuid": "tracking-003-12345678-1234-1234-1234-123456789012",
+              "date-time-stamp": "2024-12-28T12:00:00.000Z",
+              "title": "POA&M Item Created",
+              "description": "High-priority POA&M item created to address encryption gap in development environment",
+              "props": [
+                {
+                  "name": "tracking-type",
+                  "value": "creation"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "evidence-vuln-policy",
+          "title": "Current Vulnerability Management Policy",
+          "props": [
+            {
+              "name": "type",
+              "value": "policy"
+            }
+          ],
+          "description": "Organization's current vulnerability management policy document version 2.1 dated October 2024"
+        },
+        {
+          "uuid": "evidence-scan-reports",
+          "title": "Historical Vulnerability Scan Reports",
+          "props": [
+            {
+              "name": "type",
+              "value": "evidence"
+            }
+          ],
+          "description": "Collection of vulnerability scan reports from the past 90 days showing current scanning coverage and frequency"
+        },
+        {
+          "uuid": "evidence-access-reviews",
+          "title": "Q3 2024 Access Review Documentation",
+          "props": [
+            {
+              "name": "type",
+              "value": "evidence"
+            }
+          ],
+          "description": "Documentation from third quarter 2024 quarterly access reviews showing current process and identified gaps"
+        },
+        {
+          "uuid": "evidence-db-configs",
+          "title": "Database Configuration Evidence",
+          "props": [
+            {
+              "name": "type",
+              "value": "evidence"
+            }
+          ],
+          "description": "Screenshots and configuration exports showing encryption settings across production and development database instances"
+        }
+      ]
+    }
+  }
+}

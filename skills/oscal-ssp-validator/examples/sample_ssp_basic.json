@@ -1,0 +1,137 @@
+{
+  "system-security-plan": {
+    "uuid": "example-ssp-001",
+    "metadata": {
+      "title": "Example Cloud Application SSP",
+      "last-modified": "2025-01-15T10:00:00Z",
+      "version": "1.0",
+      "oscal-version": "1.0.4",
+      "roles": [
+        {
+          "id": "isso",
+          "title": "Information System Security Officer"
+        }
+      ],
+      "parties": [
+        {
+          "uuid": "party-001",
+          "type": "organization",
+          "name": "Example Cloud Services Inc."
+        }
+      ]
+    },
+    "import-profile": {
+      "href": "https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/rev5/baselines/json/FedRAMP_rev5_MODERATE-baseline_profile.json"
+    },
+    "system-characteristics": {
+      "system-ids": [
+        {
+          "identifier-type": "https://fedramp.gov",
+          "id": "F00000000"
+        }
+      ],
+      "system-name": "Example Cloud Application",
+      "description": "A cloud-based web application for federal agencies",
+      "security-sensitivity-level": "moderate",
+      "system-information": {
+        "information-types": [
+          {
+            "uuid": "info-type-001",
+            "title": "Administrative Records",
+            "description": "General administrative information",
+            "categorizations": [
+              {
+                "system": "https://doi.org/10.6028/NIST.SP.800-60v2r1",
+                "information-type-ids": ["C.3.5.1"]
+              }
+            ],
+            "confidentiality-impact": {
+              "base": "fips-199-moderate"
+            },
+            "integrity-impact": {
+              "base": "fips-199-moderate"
+            },
+            "availability-impact": {
+              "base": "fips-199-low"
+            }
+          }
+        ]
+      },
+      "security-impact-level": {
+        "security-objective-confidentiality": "fips-199-moderate",
+        "security-objective-integrity": "fips-199-moderate",
+        "security-objective-availability": "fips-199-low"
+      },
+      "status": {
+        "state": "operational"
+      },
+      "authorization-boundary": {
+        "description": "The authorization boundary includes web application servers, database servers, and load balancers deployed in AWS."
+      }
+    },
+    "system-implementation": {
+      "users": [
+        {
+          "uuid": "user-001",
+          "title": "Application Administrators",
+          "role-ids": ["isso"],
+          "authorized-privileges": [
+            {
+              "title": "System Administration",
+              "functions-performed": ["User management", "Configuration"]
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "uuid": "component-001",
+          "type": "software",
+          "title": "Web Application",
+          "description": "Primary web application component",
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "component-002",
+          "type": "software",
+          "title": "PostgreSQL Database",
+          "description": "Primary data store",
+          "status": {
+            "state": "operational"
+          }
+        }
+      ]
+    },
+    "control-implementation": {
+      "description": "Control implementation for FedRAMP Moderate baseline",
+      "implemented-requirements": [
+        {
+          "uuid": "req-001",
+          "control-id": "ac-1",
+          "description": "Access Control Policy and Procedures",
+          "statements": [
+            {
+              "statement-id": "ac-1_smt",
+              "uuid": "stmt-001",
+              "description": "The organization has developed and documented access control policies."
+            }
+          ]
+        },
+        {
+          "uuid": "req-002",
+          "control-id": "ac-2",
+          "description": "Account Management",
+          "statements": [
+            {
+              "statement-id": "ac-2_smt.a",
+              "uuid": "stmt-002",
+              "description": "The system identifies and selects account types to support organizational missions/business functions."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,395 @@
+{
+  "system-security-plan": {
+    "uuid": "a49ed328-fc9c-4506-be81-90b95cbd8d6c",
+    "metadata": {
+      "title": "Example FedRAMP System Security Plan Template",
+      "published": "2024-12-28T12:00:00.000Z",
+      "last-modified": "2024-12-28T12:00:00.000Z",
+      "version": "1.0.0",
+      "oscal-version": "1.1.2",
+      "revisions": [
+        {
+          "published": "2024-12-28T12:00:00.000Z",
+          "last-modified": "2024-12-28T12:00:00.000Z",
+          "version": "1.0.0",
+          "oscal-version": "1.1.2",
+          "props": [
+            {
+              "name": "party-uuid",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d"
+            }
+          ],
+          "remarks": "Initial FedRAMP SSP template based on rev 5 baselines"
+        }
+      ],
+      "props": [
+        {
+          "name": "marking",
+          "value": "Controlled Unclassified Information"
+        }
+      ],
+      "roles": [
+        {
+          "id": "system-owner",
+          "title": "Information System Owner"
+        },
+        {
+          "id": "authorizing-official",
+          "title": "Authorizing Official"
+        },
+        {
+          "id": "system-poc-management",
+          "title": "Information System Management Point of Contact",
+          "short-name": "ISMPoC"
+        },
+        {
+          "id": "system-poc-technical", 
+          "title": "Information System Technical Point of Contact",
+          "short-name": "ISTPoC"
+        },
+        {
+          "id": "information-system-security-officer",
+          "title": "Information System Security Officer",
+          "short-name": "ISSO"
+        }
+      ],
+      "locations": [
+        {
+          "uuid": "7c87c572-a5b4-4747-9fce-4065b261c9c7",
+          "address": {
+            "country": "US"
+          }
+        }
+      ],
+      "parties": [
+        {
+          "uuid": "77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d",
+          "type": "organization",
+          "name": "FedRAMP Program Management Office",
+          "short-name": "FedRAMP PMO",
+          "links": [
+            {
+              "href": "https://fedramp.gov"
+            }
+          ],
+          "email-addresses": [
+            "oscal@fedramp.gov"
+          ],
+          "addresses": [
+            {
+              "type": "work",
+              "addr-lines": [
+                "1800 F St. NW"
+              ],
+              "city": "Washington",
+              "state": "DC",
+              "postal-code": "20006",
+              "country": "US"
+            }
+          ]
+        },
+        {
+          "uuid": "csp-12345678-1234-1234-1234-123456789012",
+          "type": "organization",
+          "name": "Example Cloud Service Provider",
+          "short-name": "Example CSP"
+        },
+        {
+          "uuid": "iso-12345678-1234-1234-1234-123456789012",
+          "type": "person",
+          "name": "Jane Smith",
+          "email-addresses": [
+            "jane.smith@example.com"
+          ],
+          "telephone-numbers": [
+            "+1-555-123-4567"
+          ],
+          "location-uuids": [
+            "7c87c572-a5b4-4747-9fce-4065b261c9c7"
+          ],
+          "member-of-organizations": [
+            "csp-12345678-1234-1234-1234-123456789012"
+          ]
+        }
+      ],
+      "responsible-parties": [
+        {
+          "role-id": "system-owner",
+          "party-uuids": [
+            "iso-12345678-1234-1234-1234-123456789012"
+          ]
+        }
+      ]
+    },
+    "import-profile": {
+      "href": "https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/rev5/baselines/json/FedRAMP_rev5_MODERATE-baseline-resolved-profile_catalog.json"
+    },
+    "system-characteristics": {
+      "system-ids": [
+        {
+          "identifier-type": "https://fedramp.gov",
+          "id": "F00000000"
+        }
+      ],
+      "system-name": "Example FedRAMP System",
+      "system-name-short": "EFS",
+      "description": "This is an example FedRAMP system demonstrating OSCAL SSP format with proper FedRAMP extensions and required fields.",
+      "props": [
+        {
+          "name": "cloud-deployment-model",
+          "ns": "https://fedramp.gov/ns/oscal",
+          "value": "saas"
+        },
+        {
+          "name": "cloud-service-model", 
+          "ns": "https://fedramp.gov/ns/oscal",
+          "value": "saas"
+        }
+      ],
+      "security-sensitivity-level": "moderate",
+      "system-information": {
+        "information-types": [
+          {
+            "uuid": "info-type-12345678-1234-1234-1234-123456789012",
+            "title": "System and Network Configuration",
+            "description": "This system maintains information pertaining to the configuration of the network and individual systems.",
+            "categorizations": [
+              {
+                "system": "https://doi.org/10.6028/NIST.SP.800-60v1r1",
+                "information-type-ids": [
+                  "C.3.5.8"
+                ]
+              }
+            ],
+            "confidentiality-impact": {
+              "base": "moderate",
+              "selected": "moderate"
+            },
+            "integrity-impact": {
+              "base": "moderate", 
+              "selected": "moderate"
+            },
+            "availability-impact": {
+              "base": "low",
+              "selected": "moderate"
+            }
+          }
+        ]
+      },
+      "security-impact-level": {
+        "security-objective-confidentiality": "moderate",
+        "security-objective-integrity": "moderate",
+        "security-objective-availability": "moderate"
+      },
+      "status": {
+        "state": "operational"
+      },
+      "authorization-boundary": {
+        "description": "The authorization boundary includes all components of the Example FedRAMP System including web servers, application servers, databases, and supporting network infrastructure within the cloud service provider's environment."
+      },
+      "network-architecture": {
+        "description": "The system employs a three-tier architecture with web servers in a DMZ, application servers in a private subnet, and databases in a secured backend subnet with appropriate network segmentation and monitoring."
+      },
+      "data-flow": {
+        "description": "Data flows from external users through the internet to the load balancer, then to web servers, application servers, and finally to the database layer. All data in transit is encrypted using TLS 1.3."
+      }
+    },
+    "system-implementation": {
+      "users": [
+        {
+          "uuid": "user-12345678-1234-1234-1234-123456789012",
+          "title": "System Administrator",
+          "description": "System administrators responsible for maintaining the operational status of the system.",
+          "props": [
+            {
+              "name": "type",
+              "value": "internal"
+            },
+            {
+              "name": "privilege-level",
+              "value": "privileged"
+            },
+            {
+              "name": "sensitivity",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "moderate"
+            }
+          ],
+          "role-ids": [
+            "system-owner"
+          ],
+          "authorized-privileges": [
+            {
+              "title": "Administrative Access",
+              "functions-performed": [
+                "System configuration and maintenance",
+                "User account management",
+                "Security monitoring and incident response"
+              ]
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "uuid": "component-web-12345678-1234-1234-1234-123456789012",
+          "type": "software",
+          "title": "NGINX Web Server",
+          "description": "High-performance HTTP server and reverse proxy serving as the primary web server for the application.",
+          "purpose": "Serves web content and acts as reverse proxy to application servers",
+          "props": [
+            {
+              "name": "version",
+              "value": "1.24.0"
+            },
+            {
+              "name": "patch-level",
+              "value": "latest"
+            },
+            {
+              "name": "model",
+              "value": "nginx-plus"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          },
+          "responsible-roles": [
+            {
+              "role-id": "system-poc-technical"
+            }
+          ]
+        },
+        {
+          "uuid": "component-app-12345678-1234-1234-1234-123456789012", 
+          "type": "software",
+          "title": "Node.js Application Server",
+          "description": "Node.js runtime environment hosting the main application logic and API endpoints.",
+          "purpose": "Executes business logic and provides RESTful API services",
+          "props": [
+            {
+              "name": "version", 
+              "value": "20.10.0"
+            },
+            {
+              "name": "framework",
+              "value": "Express.js 4.18.2"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "component-db-12345678-1234-1234-1234-123456789012",
+          "type": "software", 
+          "title": "PostgreSQL Database",
+          "description": "Primary database system storing application data with encryption at rest.",
+          "purpose": "Data persistence and management for application operations",
+          "props": [
+            {
+              "name": "version",
+              "value": "15.4"
+            },
+            {
+              "name": "encryption",
+              "value": "AES-256"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        }
+      ]
+    },
+    "control-implementation": {
+      "description": "This section describes how each security control is implemented within the Example FedRAMP System.",
+      "implemented-requirements": [
+        {
+          "uuid": "req-ac-1-12345678-1234-1234-1234-123456789012",
+          "control-id": "ac-1",
+          "description": "The organization develops, documents, and disseminates access control policy and procedures.",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "responsible-roles": [
+            {
+              "role-id": "information-system-security-officer"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "ac-1_smt",
+              "uuid": "stmt-ac-1-12345678-1234-1234-1234-123456789012",
+              "description": "The organization has developed and documented comprehensive access control policies and procedures that are reviewed annually and updated as necessary. These policies address purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance."
+            }
+          ]
+        },
+        {
+          "uuid": "req-ac-2-12345678-1234-1234-1234-123456789012",
+          "control-id": "ac-2",
+          "description": "The organization manages information system accounts including establishment, activation, modification, disabling, and removal of accounts.",
+          "props": [
+            {
+              "name": "implementation-status", 
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "ac-2_smt.a",
+              "uuid": "stmt-ac-2a-12345678-1234-1234-1234-123456789012", 
+              "description": "Account management procedures identify account types (individual, group, system, network, guest, anonymous, emergency, temporary, service) and establish conditions for group membership."
+            },
+            {
+              "statement-id": "ac-2_smt.b",
+              "uuid": "stmt-ac-2b-12345678-1234-1234-1234-123456789012",
+              "description": "Account managers are assigned and authorized to request account establishment; establish account requirements; approve account requests; specify authorized users, group memberships, and privileges."
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "component-app-12345678-1234-1234-1234-123456789012",
+              "uuid": "bycomp-ac-2-12345678-1234-1234-1234-123456789012",
+              "description": "The Node.js application implements user account management through integration with enterprise identity management system, providing automated account provisioning, modification, and deprovisioning capabilities."
+            }
+          ]
+        },
+        {
+          "uuid": "req-sc-8-12345678-1234-1234-1234-123456789012",
+          "control-id": "sc-8",
+          "description": "The information system protects the confidentiality and integrity of transmitted information.",
+          "props": [
+            {
+              "name": "implementation-status",
+              "value": "implemented"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "sc-8_smt",
+              "uuid": "stmt-sc-8-12345678-1234-1234-1234-123456789012",
+              "description": "The system implements TLS 1.3 encryption for all data in transit, ensuring confidentiality and integrity of transmitted information between all system components and external interfaces."
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "component-web-12345678-1234-1234-1234-123456789012",
+              "uuid": "bycomp-sc-8-web-12345678-1234-1234-1234-123456789012",
+              "description": "NGINX web server is configured with TLS 1.3, requiring encrypted connections for all client communications and backend proxy connections."
+            },
+            {
+              "component-uuid": "component-app-12345678-1234-1234-1234-123456789012", 
+              "uuid": "bycomp-sc-8-app-12345678-1234-1234-1234-123456789012",
+              "description": "Node.js application server enforces HTTPS-only communication and validates SSL certificates for all external API calls."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,380 @@
+{
+  "component-definition": {
+    "uuid": "comp-def-12345678-1234-1234-1234-123456789012",
+    "metadata": {
+      "title": "Cloud Infrastructure Component Definitions for FedRAMP",
+      "published": "2024-12-28T12:00:00.000Z",
+      "last-modified": "2024-12-28T12:00:00.000Z", 
+      "version": "1.0.0",
+      "oscal-version": "1.1.2",
+      "props": [
+        {
+          "name": "keywords",
+          "value": "cloud, infrastructure, AWS, Kubernetes, FedRAMP, security controls"
+        }
+      ],
+      "roles": [
+        {
+          "id": "cloud-architect",
+          "title": "Cloud Solutions Architect",
+          "description": "Responsible for designing and implementing cloud infrastructure components"
+        },
+        {
+          "id": "security-engineer", 
+          "title": "Security Engineer",
+          "description": "Responsible for security implementation and compliance validation"
+        }
+      ]
+    },
+    "components": [
+      {
+        "uuid": "aws-ec2-12345678-1234-1234-1234-123456789012",
+        "type": "service",
+        "title": "Amazon Elastic Compute Cloud (EC2)",
+        "description": "Amazon EC2 provides scalable computing capacity in the Amazon Web Services (AWS) Cloud, eliminating the need to invest in hardware up front.",
+        "purpose": "Provides virtualized compute infrastructure for hosting applications and services with on-demand scalability",
+        "props": [
+          {
+            "name": "cloud-provider",
+            "value": "AWS"
+          },
+          {
+            "name": "service-type", 
+            "value": "compute"
+          },
+          {
+            "name": "fedramp-impact-level",
+            "ns": "https://fedramp.gov/ns/oscal",
+            "value": "high"
+          },
+          {
+            "name": "authorization-date",
+            "ns": "https://fedramp.gov/ns/oscal",
+            "value": "2023-06-15"
+          }
+        ],
+        "links": [
+          {
+            "href": "https://aws.amazon.com/ec2/",
+            "rel": "reference",
+            "text": "AWS EC2 Service Documentation"
+          },
+          {
+            "href": "https://aws.amazon.com/compliance/fedramp/",
+            "rel": "reference",
+            "text": "AWS FedRAMP Authorization"
+          }
+        ],
+        "responsible-roles": [
+          {
+            "role-id": "cloud-architect"
+          }
+        ],
+        "control-implementations": [
+          {
+            "uuid": "impl-ec2-12345678-1234-1234-1234-123456789012",
+            "source": "https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/rev5/baselines/json/FedRAMP_rev5_MODERATE-baseline-resolved-profile_catalog.json",
+            "description": "Security control implementations for AWS EC2 instances",
+            "implemented-requirements": [
+              {
+                "uuid": "req-ec2-sc-7-12345678-1234-1234-1234-123456789012",
+                "control-id": "sc-7",
+                "description": "EC2 Security Groups provide network-level access control by acting as virtual firewalls that control inbound and outbound traffic to EC2 instances.",
+                "props": [
+                  {
+                    "name": "implementation-status",
+                    "value": "implemented"
+                  }
+                ],
+                "statements": [
+                  {
+                    "statement-id": "sc-7_smt.a",
+                    "uuid": "stmt-ec2-sc-7a-12345678-1234-1234-1234-123456789012",
+                    "description": "AWS EC2 Security Groups control communications at the boundary between the system and external networks by defining allowed protocols, ports, and source/destination IP ranges."
+                  }
+                ]
+              },
+              {
+                "uuid": "req-ec2-au-2-12345678-1234-1234-1234-123456789012",
+                "control-id": "au-2",
+                "description": "AWS CloudTrail automatically logs all EC2 API calls and administrative actions for audit purposes.",
+                "props": [
+                  {
+                    "name": "implementation-status",
+                    "value": "implemented"
+                  }
+                ],
+                "statements": [
+                  {
+                    "statement-id": "au-2_smt.a",
+                    "uuid": "stmt-ec2-au-2a-12345678-1234-1234-1234-123456789012",
+                    "description": "CloudTrail provides comprehensive audit logging of EC2 instance lifecycle events, configuration changes, and administrative actions with tamper-evident log storage in S3."
+                  }
+                ]
+              },
+              {
+                "uuid": "req-ec2-ia-2-12345678-1234-1234-1234-123456789012",
+                "control-id": "ia-2",
+                "description": "EC2 instances support multiple authentication mechanisms including SSH key pairs, AWS Systems Manager Session Manager, and integration with AWS IAM.",
+                "props": [
+                  {
+                    "name": "implementation-status",
+                    "value": "implemented"
+                  }
+                ],
+                "statements": [
+                  {
+                    "statement-id": "ia-2_smt",
+                    "uuid": "stmt-ec2-ia-2-12345678-1234-1234-1234-123456789012",
+                    "description": "EC2 instances uniquely identify and authenticate users through SSH key-based authentication, AWS IAM integration, and optional multi-factor authentication via Session Manager."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "uuid": "k8s-12345678-1234-1234-1234-123456789012",
+        "type": "software",
+        "title": "Kubernetes Container Orchestration Platform",
+        "description": "Kubernetes is an open-source container orchestration platform that automates deployment, scaling, and management of containerized applications.",
+        "purpose": "Provides container orchestration, automated deployment, scaling, and management of microservices applications",
+        "props": [
+          {
+            "name": "version",
+            "value": "1.28.4"
+          },
+          {
+            "name": "deployment-model",
+            "value": "cluster"
+          },
+          {
+            "name": "cis-benchmark",
+            "value": "CIS Kubernetes Benchmark v1.8.0"
+          }
+        ],
+        "links": [
+          {
+            "href": "https://kubernetes.io/docs/",
+            "rel": "reference",
+            "text": "Kubernetes Official Documentation"
+          },
+          {
+            "href": "https://www.cisecurity.org/benchmark/kubernetes",
+            "rel": "reference", 
+            "text": "CIS Kubernetes Benchmark"
+          }
+        ],
+        "responsible-roles": [
+          {
+            "role-id": "cloud-architect"
+          },
+          {
+            "role-id": "security-engineer"
+          }
+        ],
+        "control-implementations": [
+          {
+            "uuid": "impl-k8s-12345678-1234-1234-1234-123456789012",
+            "source": "https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/rev5/baselines/json/FedRAMP_rev5_MODERATE-baseline-resolved-profile_catalog.json",
+            "description": "Security control implementations for Kubernetes platform",
+            "implemented-requirements": [
+              {
+                "uuid": "req-k8s-ac-3-12345678-1234-1234-1234-123456789012",
+                "control-id": "ac-3", 
+                "description": "Kubernetes Role-Based Access Control (RBAC) enforces access control decisions by regulating access to cluster resources based on the roles of individual users.",
+                "props": [
+                  {
+                    "name": "implementation-status",
+                    "value": "implemented"
+                  }
+                ],
+                "statements": [
+                  {
+                    "statement-id": "ac-3_smt",
+                    "uuid": "stmt-k8s-ac-3-12345678-1234-1234-1234-123456789012",
+                    "description": "Kubernetes RBAC controls access to cluster resources through Role and ClusterRole definitions that specify permitted actions on specific resources, bound to users and service accounts through RoleBindings."
+                  }
+                ]
+              },
+              {
+                "uuid": "req-k8s-sc-4-12345678-1234-1234-1234-123456789012",
+                "control-id": "sc-4",
+                "description": "Kubernetes Network Policies control information flow between pods, namespaces, and external endpoints by defining ingress and egress rules.",
+                "props": [
+                  {
+                    "name": "implementation-status",
+                    "value": "implemented"
+                  }
+                ],
+                "statements": [
+                  {
+                    "statement-id": "sc-4_smt.a",
+                    "uuid": "stmt-k8s-sc-4a-12345678-1234-1234-1234-123456789012",
+                    "description": "Network Policies implement micro-segmentation by controlling traffic flow between pods based on labels, namespaces, and IP blocks, preventing unauthorized communication within the cluster."
+                  }
+                ]
+              },
+              {
+                "uuid": "req-k8s-au-8-12345678-1234-1234-1234-123456789012",
+                "control-id": "au-8",
+                "description": "Kubernetes audit logging provides comprehensive timestamped records of all API server requests and cluster activities.",
+                "props": [
+                  {
+                    "name": "implementation-status",
+                    "value": "implemented"
+                  }
+                ],
+                "statements": [
+                  {
+                    "statement-id": "au-8_smt.a",
+                    "uuid": "stmt-k8s-au-8a-12345678-1234-1234-1234-123456789012",
+                    "description": "Kubernetes API server audit logs include precise timestamps for all requests, providing detailed records of who performed what actions on which resources at specific times."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "uuid": "nginx-12345678-1234-1234-1234-123456789012",
+        "type": "software",
+        "title": "NGINX Web Server and Reverse Proxy",
+        "description": "NGINX is a high-performance HTTP server, reverse proxy, and load balancer known for its stability, rich feature set, simple configuration, and low resource consumption.",
+        "purpose": "Serves web content, provides reverse proxy functionality, SSL termination, and load balancing for web applications",
+        "props": [
+          {
+            "name": "version",
+            "value": "1.24.0"
+          },
+          {
+            "name": "ssl-protocols",
+            "value": "TLSv1.2 TLSv1.3"
+          },
+          {
+            "name": "security-headers",
+            "value": "enabled"
+          }
+        ],
+        "links": [
+          {
+            "href": "https://nginx.org/en/docs/",
+            "rel": "reference",
+            "text": "NGINX Documentation"
+          },
+          {
+            "href": "https://nginx.org/en/docs/http/configuring_https_servers.html",
+            "rel": "reference",
+            "text": "NGINX SSL Configuration Guide"
+          }
+        ],
+        "responsible-roles": [
+          {
+            "role-id": "cloud-architect"
+          }
+        ],
+        "control-implementations": [
+          {
+            "uuid": "impl-nginx-12345678-1234-1234-1234-123456789012",
+            "source": "https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/rev5/baselines/json/FedRAMP_rev5_MODERATE-baseline-resolved-profile_catalog.json",
+            "description": "Security control implementations for NGINX web server",
+            "implemented-requirements": [
+              {
+                "uuid": "req-nginx-sc-8-12345678-1234-1234-1234-123456789012",
+                "control-id": "sc-8",
+                "description": "NGINX implements TLS encryption for all client communications and upstream connections to protect data in transit.",
+                "props": [
+                  {
+                    "name": "implementation-status",
+                    "value": "implemented"
+                  }
+                ],
+                "statements": [
+                  {
+                    "statement-id": "sc-8_smt.a",
+                    "uuid": "stmt-nginx-sc-8a-12345678-1234-1234-1234-123456789012",
+                    "description": "NGINX is configured with TLS 1.2 and 1.3 protocols, modern cipher suites, and HTTP Strict Transport Security (HSTS) to ensure confidentiality and integrity of transmitted information."
+                  }
+                ]
+              },
+              {
+                "uuid": "req-nginx-au-8-12345678-1234-1234-1234-123456789012", 
+                "control-id": "au-8",
+                "description": "NGINX provides comprehensive access logging with customizable log formats including timestamps, client information, and request details.",
+                "props": [
+                  {
+                    "name": "implementation-status",
+                    "value": "implemented"
+                  }
+                ],
+                "statements": [
+                  {
+                    "statement-id": "au-8_smt.a",
+                    "uuid": "stmt-nginx-au-8a-12345678-1234-1234-1234-123456789012",
+                    "description": "NGINX access logs include ISO 8601 formatted timestamps, client IP addresses, HTTP methods, response codes, and user agent information for comprehensive audit trails."
+                  }
+                ]
+              },
+              {
+                "uuid": "req-nginx-sc-23-12345678-1234-1234-1234-123456789012",
+                "control-id": "sc-23",
+                "description": "NGINX implements session protection through secure session management and cookie security controls.",
+                "props": [
+                  {
+                    "name": "implementation-status",
+                    "value": "implemented"
+                  }
+                ],
+                "statements": [
+                  {
+                    "statement-id": "sc-23_smt.a",
+                    "uuid": "stmt-nginx-sc-23a-12345678-1234-1234-1234-123456789012",
+                    "description": "NGINX is configured to set secure session cookies with HttpOnly and Secure flags, implement session timeout controls, and protect against session fixation and hijacking attacks."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "resource-fedramp-12345678-1234-1234-1234-123456789012",
+          "title": "FedRAMP Security Controls Baseline",
+          "props": [
+            {
+              "name": "type",
+              "value": "baseline"
+            }
+          ],
+          "rlinks": [
+            {
+              "href": "https://www.fedramp.gov/assets/resources/documents/FedRAMP_Security_Controls_Baseline.xlsx"
+            }
+          ],
+          "description": "Official FedRAMP security controls baseline containing all required controls for moderate impact systems."
+        },
+        {
+          "uuid": "resource-cis-12345678-1234-1234-1234-123456789012",
+          "title": "CIS Benchmarks", 
+          "props": [
+            {
+              "name": "type",
+              "value": "guidance"
+            }
+          ],
+          "rlinks": [
+            {
+              "href": "https://www.cisecurity.org/cis-benchmarks"
+            }
+          ],
+          "description": "Center for Internet Security (CIS) Benchmarks provide prescriptive guidance for establishing secure configuration baselines."
+        }
+      ]
+    }
+  }
+}

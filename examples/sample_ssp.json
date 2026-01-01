@@ -1,0 +1,105 @@
+{
+  "system-security-plan": {
+    "uuid": "cff8385f-108e-40a5-8f7a-82f3dc0eaba8",
+    "metadata": {
+      "title": "Sample System Security Plan",
+      "last-modified": "2025-12-28T00:00:00Z",
+      "version": "1.0",
+      "oscal-version": "1.0.6",
+      "roles": [
+        {
+          "id": "system-owner",
+          "title": "System Owner"
+        }
+      ],
+      "parties": [
+        {
+          "uuid": "22222222-0000-4000-9000-200000000001",
+          "type": "organization",
+          "name": "Example Corporation"
+        }
+      ]
+    },
+    "import-profile": {
+      "href": "#74c8ba1e-5cd4-4ad1-bbfd-d888e2f6c724"
+    },
+    "system-characteristics": {
+      "system-ids": [
+        {
+          "id": "sys-001"
+        }
+      ],
+      "system-name": "Enterprise Web Application",
+      "description": "A cloud-based web application for customer management",
+      "security-sensitivity-level": "moderate",
+      "system-information": {
+        "information-types": [
+          {
+            "uuid": "33333333-0000-4000-9000-300000000001",
+            "title": "Customer Information",
+            "description": "Personal and business information about customers",
+            "confidentiality-impact": {
+              "base": "moderate"
+            },
+            "integrity-impact": {
+              "base": "moderate"
+            },
+            "availability-impact": {
+              "base": "low"
+            }
+          }
+        ]
+      },
+      "security-impact-level": {
+        "security-objective-confidentiality": "moderate",
+        "security-objective-integrity": "moderate",
+        "security-objective-availability": "low"
+      },
+      "authorization-boundary": {
+        "description": "The authorization boundary includes all components of the web application and supporting infrastructure."
+      }
+    },
+    "system-implementation": {
+      "users": [
+        {
+          "uuid": "44444444-0000-4000-9000-400000000001",
+          "title": "Application Administrator",
+          "role-ids": [
+            "system-owner"
+          ]
+        }
+      ],
+      "components": [
+        {
+          "uuid": "55555555-0000-4000-9000-500000000001",
+          "type": "software",
+          "title": "Web Application Server",
+          "description": "Primary web application server running on AWS EC2",
+          "status": {
+            "state": "operational"
+          }
+        }
+      ]
+    },
+    "control-implementation": {
+      "description": "Implementation of security controls for the system",
+      "implemented-requirements": [
+        {
+          "uuid": "66666666-0000-4000-9000-600000000001",
+          "control-id": "ac-1",
+          "description": "Access control policies are documented in the Security Policy Manual and reviewed annually by the security team."
+        },
+        {
+          "uuid": "77777777-0000-4000-9000-700000000001",
+          "control-id": "ac-2",
+          "description": "User accounts are managed through AWS IAM with automated provisioning and deprovisioning processes. Account reviews are conducted quarterly."
+        },
+        {
+          "uuid": "88888888-0000-4000-9000-800000000001",
+          "control-id": "ia-2",
+          "description": "Multi-factor authentication is enforced for all users accessing the system using AWS Cognito."
+        }
+      ]
+    }
+  }
+}
